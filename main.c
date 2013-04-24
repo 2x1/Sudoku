@@ -72,12 +72,12 @@ int nextData(int a[9][9],int offset)
 		if(DEBUG) printf("done\n");
 		return 1;
 	}
-	int ma[9][9];
+	//int ma[9][9];
 	int i;
 	int abs = offset/9;
 	int ord = offset%9;
 	//memcpy(ma,a,sizeof(int)*9*9);
-	SudokuCpy(ma,a);
+	//SudokuCpy(ma,a);
 	if(a[abs][ord]!=0)
 	{
 		if(DEBUG) printf("a[%d][%d] is %d,passed \n",abs,ord,a[abs][ord]);
@@ -89,17 +89,17 @@ int nextData(int a[9][9],int offset)
 		if(AllDone(a,abs,ord,i))
 		{
 			if(DEBUG) printf("D:%d \n",i);
-			ma[abs][ord] = i;
-			if(DEBUG) output(ma);
-			if(nextData(ma,offset+1))
+			a[abs][ord] = i;
+			//if(DEBUG) output(ma);
+			if(nextData(a,offset+1))
 			{
 				if(DEBUG) printf("done\n");
 				//memcpy(a,ma,sizeof(int)*9*9);
-				SudokuCpy(a,ma);
+				//SudokuCpy(a,ma);
 				return 1;
 			}
 		}
-		ma[abs][ord] = 0;
+		a[abs][ord] = 0;
 		if(DEBUG) printf("N ");
 	}
 	if(DEBUG) printf("can not get result\n");
@@ -128,7 +128,7 @@ int main()
 		output(a);
 	}else
 	{
-		printf("no result\n");
+		printf("no result.\n");
 	}
 	return 0;
 }
