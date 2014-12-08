@@ -15,11 +15,11 @@ all			: ${PROGS} succ
 
 rebuild			: clean all
 
-run			:
+run			: main
 	${SAY} "INPUT:"
 	@cat test.txt
 	${SAY} "OUTPUT:"
-	@cat test.txt | ./main
+	@sh -c 'cat test.txt | ./main'
 	${SAY} ""
 	${SAY} "CORRECT?"
 
