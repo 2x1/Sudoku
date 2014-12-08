@@ -3,6 +3,9 @@
 
 #define DEBUG 0
 
+
+int AllDone(int a[9][9],int abscissa,int ordinate,int test);
+
 //Horizontal 横
 int Horizontal(int a[9][9],int abscissa,int ordinate,int test)
 {
@@ -35,7 +38,7 @@ int Area(int a[9][9],int abscissa,int ordinate,int test)
 	return 1;
 }
 
-inline int AllDone(int a[9][9],int abscissa,int ordinate,int test)
+int AllDone(int a[9][9],int abscissa,int ordinate,int test)
 {
 	if(!Horizontal(a,abscissa,ordinate,test)) return 0;
 	if(!Vertical(a,abscissa,ordinate,test)) return 0;
